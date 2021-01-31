@@ -52,7 +52,7 @@ class DB:
             os.makedirs(Config.csvDir)
 
         # Create our csv file here for import
-        with open("{0}\{1}_{2}.{3}".format(Config.csvDir, schema, table, "csv"), "w", newline="", encoding='utf-8') as f:
+        with open("{0}/{1}_{2}.{3}".format(Config.csvDir, schema, table, "csv"), "w", newline="", encoding='utf-8') as f:
             w = csv.writer(f, quotechar='\"', quoting=csv.QUOTE_MINIMAL, delimiter='\t')
             for rows in data:
                 w.writerow([y[1] for x, y in dict(rows).items()])

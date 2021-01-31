@@ -49,7 +49,7 @@ class PostGre:
     def ingestCSV(schema, table):
         cur = PostGre.__conn().cursor()  # The database we are posting to
 
-        f = open("{0}\{1}_{2}.csv".format(Config.csvDir, schema, table), 'r')
+        f = open("{0}/{1}_{2}.csv".format(Config.csvDir, schema, table), 'r')
         try:
             cur.copy_from(file=f, table="{0}.{1}".format(schema, table), null="")
         except Exception as e:
