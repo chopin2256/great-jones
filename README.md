@@ -1,11 +1,11 @@
 # JSON to Data Project
 
 ## What the script does
-This script will create a table with appropriate data types, assumed by the values of the data. If the json file is different, a very simple technique is used to create a new table.  The following technique is:
+This script will flatten and output a json file into objects.  Then it will create a table with appropriate data types, assumed by the values of the data.  Finally, we import the data into the tables using PostGre's COPY command.  The json files must be stored in the json directory and also must be in the format of:
 
-<code>CREATE TABLE IF NOT EXISTS</code>
+<code>schemaname_tablename.json</code>
 
-This let's us run the above command on every json run, and if the table al
+Following this format will recognize each file source as its own table in specified schemas.  The way this works is by splitting the filenames with the delimiter "_".
 
 ## Code Structure
 * <b>main.py</b> - <i>entry point</i>
@@ -21,10 +21,9 @@ This let's us run the above command on every json run, and if the table al
 * <b>os</b> - <i>file and directory creation/deletion etc</i>
 
 ## How to connect to the EC2 via SSH
-###If you are using the mac terminal, use this string to make a connection:
-<i>ssh -i "python_box.pem" ec2-user@ec2-50-19-60-173.compute-1.amazonaws.com</I>
-
-###If you are using Windows like me, you can use a great SSH client called Bitvise
+#### First, store the pem key on your computer.  If you are using the mac terminal, use this string to make a connection:<br>
+<code>ssh -i "python_box.pem" ec2-user@ec2-50-19-60-173.compute-1.amazonaws.com</code>
+####If you are using Windows like me, you can use an SSH client called Bitvise
 
 These are the data points required for bitvise
 * host: ec2-50-19-60-173.compute-1.amazonaws.com
@@ -37,13 +36,18 @@ These are the data points required for bitvise
   * sudo su
   * cd /home/ec2-user/scripts && python3 main.py
     
-This will execute the script and create and insert 3 rows of data into the database each time
+This will execute the script and create 2 tables and insert 3 rows of data into each table upon every execution
 
 ## Database connection (using any client, I use dbeaver)
-You can connect to the database, and run a sample query for testing:
-<i>select * from test_schema.test_table</i>
 * dbname = "warehouse"
 * host = "database-1.ct6awduawhlx.us-east-1.rds.amazonaws.com"
 * port = 5432
 * user = "postgres"
 * password = "greatjones"
+
+You can connect to the database, and run a sample query for testing:<p>
+<code>
+  SELECT * FROM myschema.table1
+  
+  SELECT * FROM myschema.table2
+</code>
