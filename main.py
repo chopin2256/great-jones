@@ -40,5 +40,5 @@ if __name__ == '__main__':
             continue
 
     # Sample query in code
-    myResults = PostGre.query("Select * from test_schema.test_table")
+    myResults = PostGre.query("Select * from myschema.table2")
     print(myResults)
