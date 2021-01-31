@@ -46,8 +46,5 @@ This will execute the script and create 2 tables and insert 3 rows of data into 
 * password = "greatjones"
 
 You can connect to the database, and run a sample query for testing:<p>
-<code>
-  SELECT * FROM myschema.table1
-  
-  SELECT * FROM myschema.table2
-</code>
+* SELECT * FROM myschema.table1
+* SELECT * FROM myschema.table2
