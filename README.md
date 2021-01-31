@@ -23,7 +23,8 @@ Following this format will recognize each file source as its own table in specif
 ## How to connect to the EC2 via SSH
 #### First, store the pem key on your computer.  If you are using the mac terminal, use this string to make a connection:<br>
 <code>ssh -i "python_box.pem" ec2-user@ec2-50-19-60-173.compute-1.amazonaws.com</code>
-####If you are using Windows like me, you can use an SSH client called Bitvise
+
+#### If you are using Windows like me, you can use an SSH client called Bitvise
 
 These are the data points required for bitvise
 * host: ec2-50-19-60-173.compute-1.amazonaws.com
