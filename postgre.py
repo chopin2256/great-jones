@@ -6,7 +6,7 @@ from config import Config
 # All postgre characteristics here
 # - Making the database connection
 # - Executing queries
-# - Exeucting Copy command (for data ingestion)
+# - Executing Copy command (for data ingestion)
 class PostGre:
     # The database connection
     @staticmethod

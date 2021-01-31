@@ -4,10 +4,7 @@
 class Config:
     # Csv Directory
     csvDir = "csvs"
-
-    # Schema and table names
-    schema_name = "test_schema"
-    table_name = "test_table"
+    jsonDir = "json"
 
     # Postgre attributes
     class PostGre:

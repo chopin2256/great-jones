@@ -1,4 +1,6 @@
-import re, csv, os
+import re
+import csv
+import os
 from postgre import PostGre
 from config import Config
 
